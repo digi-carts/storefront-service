@@ -55,3 +55,7 @@ mvn spring-boot:run
 - [store-service](https://github.com/digi-carts/store-service/blob/stage/doc/README.md)
 - [storefront](https://github.com/digi-carts/storefront/blob/stage/doc/README.md) (`middleware.ts` host rewrite)
 - [api-gateway](https://github.com/digi-carts/api-gateway/blob/stage/doc/README.md) public `/api/storefront/**`
+
+## REST API reference
+
+See [api.md](api.md) for every HTTP endpoint generated from Spring controllers.
