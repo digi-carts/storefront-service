@@ -15,7 +15,12 @@ import java.util.Map;
  */
 @RestControllerAdvice
 public class GlobalExceptionHandler {
-
+    /**
+     * Handle not found.
+     *
+     * @param ex ex
+     * @return HTTP response
+     */
     @ExceptionHandler(EntityNotFoundException.class)
     public ResponseEntity<Map<String, String>> handleNotFound(EntityNotFoundException ex) {
         Map<String, String> body = new HashMap<>();
@@ -23,6 +28,12 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(body);
     }
 
+    /**
+     * Handle validation.
+     *
+     * @param ex ex
+     * @return HTTP response
+     */
     @ExceptionHandler({ConstraintViolationException.class, MethodArgumentNotValidException.class})
     public ResponseEntity<Map<String, String>> handleValidation(Exception ex) {
         Map<String, String> body = new HashMap<>();
@@ -30,6 +41,12 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(body);
     }
 
+    /**
+     * Handle generic.
+     *
+     * @param ex ex
+     * @return HTTP response
+     */
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Map<String, String>> handleGeneric(Exception ex) {
         Map<String, String> body = new HashMap<>();
