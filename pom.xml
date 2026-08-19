@@ -13,7 +13,7 @@
 
     <groupId>com.digicart</groupId>
     <artifactId>storefront-service</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.1.0</version>
     <name>storefront-service</name>
     <description>digi-carts storefront service</description>
 
