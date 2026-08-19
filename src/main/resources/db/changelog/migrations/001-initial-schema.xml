@@ -5,11 +5,11 @@
 
     <changeSet id="001-create-schema" author="digi-carts" runAlways="true">
         <validCheckSum>ANY</validCheckSum>
-        <sql>CREATE SCHEMA IF NOT EXISTS store_svc</sql>
+        <sql>CREATE SCHEMA IF NOT EXISTS storefront_svc</sql>
     </changeSet>
 
     <changeSet id="002-create-stores-table" author="digi-carts">
-        <createTable tableName="stores" schemaName="store_svc">
+        <createTable tableName="stores" schemaName="storefront_svc">
             <column name="id" type="UUID" defaultValueComputed="gen_random_uuid()">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
@@ -44,10 +44,10 @@
             <column name="updated_at" type="TIMESTAMPTZ" defaultValueComputed="NOW()"/>
         </createTable>
 
-        <createIndex indexName="idx_stores_admin_id" tableName="stores" schemaName="store_svc">
+        <createIndex indexName="idx_stores_admin_id" tableName="stores" schemaName="storefront_svc">
             <column name="admin_id"/>
         </createIndex>
-        <createIndex indexName="idx_stores_subdomain" tableName="stores" schemaName="store_svc">
+        <createIndex indexName="idx_stores_subdomain" tableName="stores" schemaName="storefront_svc">
             <column name="subdomain"/>
         </createIndex>
     </changeSet>
