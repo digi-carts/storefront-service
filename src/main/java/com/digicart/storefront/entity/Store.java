@@ -11,7 +11,7 @@ import java.time.Instant;
  * JPA entity mapped in this service schema (Store).
  */
 @Entity
-@Table(name = "stores", schema = "store_svc")
+@Table(name = "stores", schema = "storefront_svc")
 @EntityListeners(AuditingEntityListener.class)
 public class Store {
 
