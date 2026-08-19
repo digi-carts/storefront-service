@@ -15,7 +15,7 @@ import java.util.List;
  * REST controller exposing store HTTP APIs for <em>storefront-service</em>.
  */
 @RestController
-@RequestMapping("/stores")
+@RequestMapping("/api/storefront")
 public class StoreController {
 
     private final StoreService storeService;
