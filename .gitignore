@@ -1,0 +1,10 @@
+target/
+.env
+*.class
+.idea/
+*.iml
+*.jar
+*.war
+.mvn/
+mvnw
+mvnw.cmd

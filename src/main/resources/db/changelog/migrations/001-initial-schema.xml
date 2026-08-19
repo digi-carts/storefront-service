@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <changeSet id="001-create-schema" author="digi-carts">
+        <sql>CREATE SCHEMA IF NOT EXISTS store_svc</sql>
+    </changeSet>
+
+    <changeSet id="002-create-stores-table" author="digi-carts">
+        <createTable tableName="stores" schemaName="store_svc">
+            <column name="id" type="UUID" defaultValueComputed="gen_random_uuid()">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="admin_id" type="VARCHAR(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="subdomain" type="VARCHAR(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="store_url_id" type="VARCHAR(255)">
+                <constraints unique="true"/>
+            </column>
+            <column name="domain" type="VARCHAR(255)"/>
+            <column name="email" type="VARCHAR(255)"/>
+            <column name="phone" type="VARCHAR(255)"/>
+            <column name="currency" type="VARCHAR(10)" defaultValue="INR">
+                <constraints nullable="false"/>
+            </column>
+            <column name="published" type="BOOLEAN" defaultValueBoolean="false">
+                <constraints nullable="false"/>
+            </column>
+            <column name="template" type="VARCHAR(255)" defaultValue="default">
+                <constraints nullable="false"/>
+            </column>
+            <column name="branding" type="JSONB" defaultValue="{}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="TIMESTAMPTZ" defaultValueComputed="NOW()"/>
+            <column name="updated_at" type="TIMESTAMPTZ" defaultValueComputed="NOW()"/>
+        </createTable>
+
+        <createIndex indexName="idx_stores_admin_id" tableName="stores" schemaName="store_svc">
+            <column name="admin_id"/>
+        </createIndex>
+        <createIndex indexName="idx_stores_subdomain" tableName="stores" schemaName="store_svc">
+            <column name="subdomain"/>
+        </createIndex>
+    </changeSet>
+
+</databaseChangeLog>
