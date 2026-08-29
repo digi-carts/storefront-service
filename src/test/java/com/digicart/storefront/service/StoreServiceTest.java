@@ -11,6 +11,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Optional;
+import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -38,7 +39,8 @@ class StoreServiceTest {
 
     @Test
     void findByIdThrows() {
-        when(storeRepository.findById("x")).thenReturn(Optional.empty());
-        assertThatThrownBy(() -> storeService.findById("x")).isInstanceOf(EntityNotFoundException.class);
+        UUID id = UUID.randomUUID();
+        when(storeRepository.findById(id)).thenReturn(Optional.empty());
+        assertThatThrownBy(() -> storeService.findById(id.toString())).isInstanceOf(EntityNotFoundException.class);
     }
 }

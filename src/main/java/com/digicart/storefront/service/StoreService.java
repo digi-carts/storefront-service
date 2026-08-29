@@ -8,6 +8,7 @@ import com.digicart.storefront.repository.StoreRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Application service implementing store use cases for <em>storefront-service</em>.
@@ -26,7 +27,7 @@ public class StoreService {
     }
 
     public Store findById(String id) {
-        return storeRepository.findById(id)
+        return storeRepository.findById(UUID.fromString(id))
                 .orElseThrow(() -> new EntityNotFoundException("Store not found with id: " + id));
     }
 
@@ -72,9 +73,9 @@ public class StoreService {
     }
 
     public void delete(String id) {
-        if (!storeRepository.existsById(id)) {
+        if (!storeRepository.existsById(UUID.fromString(id))) {
             throw new EntityNotFoundException("Store not found with id: " + id);
         }
-        storeRepository.deleteById(id);
+        storeRepository.deleteById(UUID.fromString(id));
     }
 }
