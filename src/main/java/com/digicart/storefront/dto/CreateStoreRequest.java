@@ -2,6 +2,9 @@ package com.digicart.storefront.dto;
 
 import jakarta.validation.constraints.NotBlank;
 
+/**
+ * Request/response DTO: Create Store Request.
+ */
 public class CreateStoreRequest {
 
     @NotBlank

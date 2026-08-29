@@ -1,5 +1,8 @@
 package com.digicart.storefront.dto;
 
+/**
+ * Request/response DTO: Update Store Request.
+ */
 public class UpdateStoreRequest {
 
     private String name;
