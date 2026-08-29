@@ -6,6 +6,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.Instant;
+import java.util.UUID;
 
 /**
  * JPA entity mapped in this service schema (Store).
@@ -17,7 +18,7 @@ public class Store {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private String id;
+    private UUID id;
 
     @Column(name = "admin_id", nullable = false, unique = true)
     private String adminId;
@@ -62,8 +63,8 @@ public class Store {
 
     public Store() {}
 
-    public String getId() { return id; }
-    public void setId(String id) { this.id = id; }
+    public UUID getId() { return id; }
+    public void setId(UUID id) { this.id = id; }
 
     public String getAdminId() { return adminId; }
     public void setAdminId(String adminId) { this.adminId = adminId; }
