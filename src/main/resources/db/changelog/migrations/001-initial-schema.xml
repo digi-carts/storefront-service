@@ -9,6 +9,7 @@
     </changeSet>
 
     <changeSet id="002-create-stores-table" author="digi-carts">
+        <validCheckSum>9:389db40a49b4ebb7d6a2a41436276f08</validCheckSum>
         <createTable tableName="stores" schemaName="store_svc">
             <column name="id" type="UUID" defaultValueComputed="gen_random_uuid()">
                 <constraints primaryKey="true" nullable="false"/>
